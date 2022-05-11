@@ -16,9 +16,12 @@ namespace Hestia.Tunnel
         public async Task InvokeAsync(HttpContext context, RequestDelegate next)
         {
             ITunnel tunnel = Builder?.Invoke(context);
-            if (await tunnel?.BeforeInvoke(context) == false) { return; }
-            await next.Invoke(context);
-            await tunnel?.AfterInvoke(context);
+            if(tunnel == null) { await next.Invoke(context); return; }
+            if (await tunnel.BeforeInvoke(context)) 
+            {
+                await next.Invoke(context);
+                await tunnel.AfterInvoke(context);
+            }            
         }
     }
 }

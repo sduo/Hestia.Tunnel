@@ -5,6 +5,10 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hestia.Tunnel", "src\Hestia.Tunnel.csproj", "{5AB9A06B-7EF0-4BD4-9A2A-897EA798095E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{22DCB093-8691-406A-8E10-469C01CE25B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hestia.Tunnel.QuickStart", "samples\Hestia.Tunnel.QuickStart\Hestia.Tunnel.QuickStart.csproj", "{C107F81F-C49C-4D1C-9FA3-B97B607E697F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +19,16 @@ Global
 		{5AB9A06B-7EF0-4BD4-9A2A-897EA798095E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AB9A06B-7EF0-4BD4-9A2A-897EA798095E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AB9A06B-7EF0-4BD4-9A2A-897EA798095E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C107F81F-C49C-4D1C-9FA3-B97B607E697F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C107F81F-C49C-4D1C-9FA3-B97B607E697F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C107F81F-C49C-4D1C-9FA3-B97B607E697F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C107F81F-C49C-4D1C-9FA3-B97B607E697F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C107F81F-C49C-4D1C-9FA3-B97B607E697F} = {22DCB093-8691-406A-8E10-469C01CE25B5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4F043462-B561-4A4D-B9FD-D617384C42BF}
