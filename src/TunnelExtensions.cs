@@ -10,10 +10,10 @@ namespace Hestia.Tunnel
     [ExcludeFromCodeCoverage]
     public static class TunnelExtensions
     {
-        public static void AddTunnel(this IServiceCollection services,IConfiguration configuration, Func<HttpContext, ITunnel> builder = null)
+        public static void AddTunnel(this IServiceCollection services,IConfiguration configuration, Func<HttpContext, IServiceProvider, ITunnel> builder = null)
         {
             services.AddReverseProxy().LoadFromConfig(configuration);
-            services.AddScoped(sp => new TunnelMiddleware(builder));
+            services.AddScoped(sp => new TunnelMiddleware(sp, builder));
         }
 
         public static void UseTunnel(this WebApplication app, Action<IReverseProxyApplicationBuilder> before = null, Action<IReverseProxyApplicationBuilder> after = null)

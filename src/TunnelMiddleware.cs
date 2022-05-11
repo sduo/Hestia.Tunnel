@@ -6,16 +6,18 @@ namespace Hestia.Tunnel
 {
     public class TunnelMiddleware: IMiddleware
     {
-        readonly Func<HttpContext, ITunnel> Builder;
+        readonly Func<HttpContext, IServiceProvider, ITunnel> Builder;
+        readonly IServiceProvider Services;
 
-        public TunnelMiddleware(Func<HttpContext, ITunnel> builder)
+        public TunnelMiddleware(IServiceProvider services, Func<HttpContext, IServiceProvider, ITunnel> builder)
         {
             Builder = builder;
+            Services = services;
         }
 
         public async Task InvokeAsync(HttpContext context, RequestDelegate next)
         {
-            ITunnel tunnel = Builder?.Invoke(context);
+            ITunnel tunnel = Builder?.Invoke(context,Services);
             if(tunnel == null) { await next.Invoke(context); return; }
             if (await tunnel.BeforeInvoke(context)) 
             {
